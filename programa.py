@@ -1,18 +1,3 @@
-""" marca 20 digitos a verificar con len
-modelo 20 digitos a verificar con len
-procesador cantidad
-velocidad procesadora
-memoria ram cantidad
-memoria video.hdd
-ssd
-puertos usb
-red rj45.logico
-wifi
-sistema operativo base
-precio unitario
-cantidad adquiridas
-cantidad vendidas minimo y maximo """
-#Variable lista para almacenar los productos
 productos=[]
 
 class producto:
@@ -50,7 +35,7 @@ def agregar_producto():
     print("Ingrese las caracteristicas de la notebook:")
     marca=caracteres(input("Ingrese marca\n"))
     modelo=caracteres2(input("Ingrese el modelo\n"))
-    velocidadprocesadora = input("Ingrese la velocidad del procesador\n")
+    velocidadprocesadora = input("Ingrese procesador\n")
     ram = input("Ingrese la ram\n")
     memoriavideo =input("Ingrese la memoria de video\n")
     ssd= input("Ingrese el ssd\n")
@@ -86,15 +71,26 @@ def mostrar_productos():
      print("cantidad de notebooks adquiridas:", producto.cantidadadqui)
      print("Cantidad minima:", producto.cantbmin)
      print("Cantidad maxima",producto.cantmax)
-         
+
+#Funcion para eliminar objeto         
+def eliminar_objetos():
+    delobj=input("Ingrese el modelo a eliminar\n")
+    for producto in productos: #recorre la lista 
+        if producto.modelo == delobj: #si hay algun objeto con el nombre ingresado en la variable lo elimina
+            productos.remove(producto)
+            print("El producto con modelo", delobj, "fue eliminado.")
+            return
+
+    print("No se encontró ningún producto con el modelo", delobj)
         
 # Función que muestra el menu con las opciones
 def mostrar_menu():
     print("\n--- Menú de opciones ---")
     print("1. Agregar nuevo producto")
     print("2. Mostrar productos")
-    print("3. Calcular stock valorizado total")
+    print("3. Eliminar productos")
     print("4. Salir")
+
 
 # Menu principal donde se ingresa el numero y se llama a la funcion
 def main():
@@ -106,13 +102,14 @@ def main():
             agregar_producto()
         elif opcion == '2':
             mostrar_productos()
+        elif opcion=="3":
+            eliminar_objetos()
         elif opcion == '4':
-            print("¡Hasta luego!")
+            print("Salió del programa")
             break
         else:
             print("Opción no válida. Por favor, ingrese un número válido.")
-        """ elif opcion == '3':
-            calcular_stock_valorizado_total() """
+        
 
 if __name__ == "__main__":
     main()
