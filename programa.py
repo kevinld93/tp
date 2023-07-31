@@ -1,5 +1,12 @@
+ 
+#Variable lista para almacenar los productos
 productos=[]
-
+password1="clave1234"
+def password():
+    contraseña=input("Ingrese contraseña\n")
+    while contraseña!=password1:
+        contraseña=input("Ingrese contraseña\n")
+    return contraseña
 class producto:
     def __init__(self, marca, modelo, velocidadprocesadora, ram, memoriavideo, ssd, puertousb, rj45, wifi, so, cantidadadqui,cantbmin,cantmax,):
         self.marca = marca
@@ -112,5 +119,6 @@ def main():
         
 
 if __name__ == "__main__":
+    password()
     main()
 
